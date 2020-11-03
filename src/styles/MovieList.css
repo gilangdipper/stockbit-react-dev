@@ -1,5 +1,6 @@
 .movie-list__wrapper {
-  /* background-color: yellow; */
+  width: auto;
+  height: auto;
 }
 
 .movie-card__wrapper {

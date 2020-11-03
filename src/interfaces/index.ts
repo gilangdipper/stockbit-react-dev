@@ -1,13 +1,26 @@
 export interface IInitialState {
   movies: IMovies[];
+  filters: IFilters;
+}
+
+export interface IFilters {
+  keyword: string;
+  page: number;
 }
 
 export type ActionTypes =
-  IUpdateMoviesAction ;
+  ISetMoviesAction |
+  ISetMoviesFiltersAction ;
 
-export interface IUpdateMoviesAction {
-  type: 'UPDATE_MOVIES';
+export interface ISetMoviesAction {
+  type: 'SET_MOVIES';
   movies: IMovies[];
+}
+
+export interface ISetMoviesFiltersAction {
+  type: 'SET_FILTERS';
+  filterName: string;
+  value: number | string;
 }
 
 export interface IMovies {
@@ -20,10 +33,14 @@ export interface IMovies {
 
 export interface IAppProps {
   movies: IMovies[];
+  filters: IFilters;
   setMovieList(movies: IMovies[]): void;
+  setFilters(filterName: string, value: number | string): void;
 }
 
 export interface IMovieList {
   movieList: IMovies[];
+  filters: IFilters;
   setMovieList(movies: IMovies[]): void;
+  setFilters(filterName: string, value: number | string): void;
 }

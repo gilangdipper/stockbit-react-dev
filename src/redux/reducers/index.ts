@@ -1,17 +1,32 @@
-import { UPDATE_MOVIES } from '../actions';
+import { SET_MOVIES, SET_FILTERS } from '../actions';
 import { ActionTypes, IInitialState } from '../../interfaces'
 
 const initialState: IInitialState = {
-  movies: []
+  movies: [],
+  filters: {
+    keyword: 'indonesia',
+    page: 1,
+  },
 };
 
 function reducer(state = initialState, action: ActionTypes) {
   switch(action.type) {
-    case UPDATE_MOVIES:
+    case SET_MOVIES:
       return {
         ...state,
-        movies: action.movies
+        movies: [
+          ...state.movies,
+          ...action.movies
+        ]
       };
+    case SET_FILTERS:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.filterName]: action.value
+        }
+      }
     default:
       return state;
   }
