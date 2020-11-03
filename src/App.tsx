@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
+import './styles/App.css';
+import * as actions from './redux/actions';
+import { IInitialState, IAppProps, IMovies } from './interfaces';
+
+import MovieList from './components/MovieList';
+
+const App = (props: IAppProps) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app__wrapper">
+        <MovieList
+          movieList={props.movies}
+          setMovieList={props.setMovieList}
+        />
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state: IInitialState): {
+  movies: IMovies[];
+} => state;
+const mapDispatchToProps: {
+  setMovieList(movies: IMovies[]): void;
+} = {
+  setMovieList: actions.setMovieList
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

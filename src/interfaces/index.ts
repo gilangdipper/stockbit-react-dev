@@ -1,5 +1,5 @@
 export interface IInitialState {
-  movies: object[]
+  movies: IMovies[];
 }
 
 export type ActionTypes =
@@ -7,5 +7,23 @@ export type ActionTypes =
 
 export interface IUpdateMoviesAction {
   type: 'UPDATE_MOVIES';
-  movies: object[];
+  movies: IMovies[];
+}
+
+export interface IMovies {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
+}
+
+export interface IAppProps {
+  movies: IMovies[];
+  setMovieList(movies: IMovies[]): void;
+}
+
+export interface IMovieList {
+  movieList: IMovies[];
+  setMovieList(movies: IMovies[]): void;
 }
