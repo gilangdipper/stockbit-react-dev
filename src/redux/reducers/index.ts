@@ -1,4 +1,4 @@
-import { SET_MOVIES, SET_FILTERS } from '../actions';
+import { SET_MOVIES, SET_FILTERS, SET_DETAILS } from '../actions';
 import { ActionTypes, IInitialState } from '../../interfaces'
 
 const initialState: IInitialState = {
@@ -9,6 +9,33 @@ const initialState: IInitialState = {
   filters: {
     keyword: 'Batman',
     page: 1,
+  },
+  details: {
+    Title: '',
+    Year: "",
+    Rated: "",
+    Released: "",
+    Runtime: "",
+    Genre: "",
+    Director: "",
+    Writer: "",
+    Actors: "",
+    Plot: "",
+    Language: "",
+    Country: "",
+    Awards: "",
+    Poster: "",
+    Ratings: [],
+    Metascore: "",
+    imdbRating: "",
+    imdbVotes: "",
+    imdbID: "",
+    Type: "",
+    DVD: "",
+    BoxOffice: "",
+    Production: "",
+    Website: "",
+    Response: ""
   },
 };
 
@@ -27,6 +54,11 @@ function reducer(state = initialState, action: ActionTypes) {
           [action.filterName]: action.value
         }
       }
+    case SET_DETAILS:
+      return {
+        ...state,
+        details: action.details,
+      };
     default:
       return state;
   }

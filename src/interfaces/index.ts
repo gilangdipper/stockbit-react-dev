@@ -1,6 +1,38 @@
 export interface IInitialState {
   movies: IMovies;
   filters: IFilters;
+  details: IDetails;
+}
+
+export interface IDetails {
+  Title: string;
+  Year: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  Ratings: {
+    Source: string,
+    Value: string
+  }[],
+  Metascore: string,
+  imdbRating: string,
+  imdbVotes: string,
+  imdbID: string,
+  Type: string,
+  DVD: string,
+  BoxOffice: string,
+  Production: string,
+  Website: string,
+  Response: string
 }
 
 export interface IMovies {
@@ -15,7 +47,8 @@ export interface IFilters {
 
 export type ActionTypes =
   ISetMoviesAction |
-  ISetMoviesFiltersAction ;
+  ISetMoviesFiltersAction |
+  ISetDetailsAction ;
 
 export interface ISetMoviesAction {
   type: 'SET_MOVIES';
@@ -28,6 +61,10 @@ export interface ISetMoviesFiltersAction {
   value: number | string;
 }
 
+export interface ISetDetailsAction {
+  type: 'SET_DETAILS';
+  details: IDetails;
+}
 export interface IMoviesSearchList {
   Title: string;
   Year: string;
@@ -56,4 +93,9 @@ export interface ISearchBar {
   filters: IFilters;
   searchMovies(newSearch?: boolean): void;
   setFilters(filterName: string, value: number | string): void;
+}
+
+export interface IDetailsPage {
+  details: IDetails;
+  setDetails(details: IDetails): void;
 }

@@ -1,0 +1,89 @@
+.detail-page__wrapper {
+  background-color: transparent;
+}
+
+.detail-page__poster-wrapper {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.detail-page__poster-wrapper > img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.detail-page__poster-wrapper button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: #00ab6b;
+  cursor: pointer;
+}
+
+.detail-page__poster-wrapper button:focus{
+  outline: none;
+}
+
+.detail-page__poster-wrapper button svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.detail-page__first-box-wrapper,
+.detail-page__second-box-wrapper,
+.detail-page__third-box-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.detail-page__title {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.detail-page__title span {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #999;
+}
+
+.detail-page__infobar {
+  color: #00ab6b;
+  font-size: 12px;
+  padding: 0 10px;
+  margin: 6px 0;
+}
+
+.detail-page__plot {
+  padding: 10px;
+  margin: 0;
+}
+
+.detail-page__cast,
+.detail-page__ratings {
+  font-weight: 600;
+  color: #00ab6b;
+  font-size: 14px;
+  margin: 0;
+  padding: 6px 10px;
+}
+
+.detail-page__cast span,
+.detail-page__ratings span {
+  color: #999;
+}
