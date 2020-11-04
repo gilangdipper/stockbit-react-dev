@@ -1,4 +1,4 @@
-## Available Scripts
+## Stockbit React Dev Test
 
 In the project directory, you can run:
 
@@ -12,5 +12,9 @@ You will also see any lint errors in the console.
 
 ### `npm run test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
+
+### run anagram function
+
+anagram function inside `stock-bit` directory, simply run the code using `node.js`.
 
