@@ -70,10 +70,17 @@ const MovieList = (props: IMovieList) => {
     <div className="movie-list__wrapper" ref={movieWrapperRef}>
       {movieList.map((movie: IMovies, index: number) => (
         <div className="movie-card__wrapper" key={movie.imdbID + index}>
-          <div className="movie-car__poster">
+          <div className="movie-card__poster">
             <img src={movie.Poster} alt={movie.Title}/>
           </div>
-          {movie.Title}
+          <div className="movie-card__description">
+              <div className="movie-card__description-row">
+                <div className="movie-card__year">{movie.Year}</div>
+                <div className="movie-card__type">{movie.Type}</div>
+              </div>
+              
+              <div className="movie-card__title">{movie.Title}</div>
+          </div>
         </div>
       ))}
     </div>

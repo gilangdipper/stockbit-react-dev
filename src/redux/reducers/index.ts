@@ -4,7 +4,7 @@ import { ActionTypes, IInitialState } from '../../interfaces'
 const initialState: IInitialState = {
   movies: [],
   filters: {
-    keyword: 'indonesia',
+    keyword: 'Batman',
     page: 1,
   },
 };
