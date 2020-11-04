@@ -6,6 +6,7 @@
 .movie-list__wrapper a {
   color: inherit;
   text-decoration: unset;
+  cursor: pointer;
 }
 
 .movie-card__wrapper {

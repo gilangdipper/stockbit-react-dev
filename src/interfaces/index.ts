@@ -87,6 +87,7 @@ export interface IMovieList {
   errorMessages: string;
   searchMovies(newSearch?: boolean): void;
   setFilters(filterName: string, value: number | string): void;
+  setUrlImageModal(url: string): void;
 }
 
 export interface ISearchBar {
@@ -98,4 +99,9 @@ export interface ISearchBar {
 export interface IDetailsPage {
   details: IDetails;
   setDetails(details: IDetails): void;
+}
+
+export interface IImagePopup {
+  urlImage: string;
+  onClose(): void;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import '../styles/MovieList.css';
 import { IMovieList, IMoviesSearchList } from '../interfaces';
@@ -13,7 +13,9 @@ const MovieList = (props: IMovieList) => {
     setFilters,
     isFetching,
     errorMessages,
+    setUrlImageModal
   } = props;
+  const history = useHistory();
 
   useEffect(() => {
     if (!isFetching) {
@@ -53,9 +55,21 @@ const MovieList = (props: IMovieList) => {
             {errorMessages}
           </div>
         : movieList.map((movie: IMoviesSearchList, index: number) => (
-            <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID + index}>
+            <a
+              onClick={(e) => {
+                history.push(`/movie/${movie.imdbID}`);
+                e.stopPropagation();
+              }}
+              key={movie.imdbID + index}
+            >
               <div className="movie-card__wrapper">
-                <div className="movie-card__poster">
+                <div
+                  className="movie-card__poster"
+                  onClick={(e) => {
+                    setUrlImageModal(movie.Poster);
+                    e.stopPropagation();
+                  }}
+                >
                   <img src={movie.Poster} alt={movie.Title}/>
                 </div>
                 <div className="movie-card__description">
@@ -67,7 +81,7 @@ const MovieList = (props: IMovieList) => {
                   <div className="movie-card__title">{movie.Title}</div>
                 </div>
               </div>
-            </Link>
+            </a>
           ))}
     </div>
   );

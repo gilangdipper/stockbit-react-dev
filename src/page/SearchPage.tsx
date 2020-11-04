@@ -11,10 +11,12 @@ import { IInitialState, IAppProps, IMovies, IFilters } from '../interfaces';
 
 import MovieList from '../components/MovieList';
 import SearchBar from '../components/SearchBar';
+import ImagePopup from '../components/ImagePopup';
 
 const SearchPage = (props: IAppProps) => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [errorMessages, setErrorMessages] = useState<string>('');
+  const [urlImageModal, setUrlImageModal] = useState<string>('');
 
   const {
     movies,
@@ -82,6 +84,11 @@ const SearchPage = (props: IAppProps) => {
         searchMovies={searchMovies}
         setFilters={setFilters}
         errorMessages={errorMessages}
+        setUrlImageModal={setUrlImageModal}
+      />
+      <ImagePopup
+        urlImage={urlImageModal}
+        onClose={() => { setUrlImageModal(''); }}
       />
     </div>
   );
