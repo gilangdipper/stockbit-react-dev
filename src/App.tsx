@@ -11,7 +11,7 @@ import DetailPage from './page/DetailPage';
 
 const App = () => {
   return (
-    <div className="app">
+    <div data-testid="app" className="app">
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={SearchPage}></Route>

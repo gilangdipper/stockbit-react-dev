@@ -49,7 +49,7 @@ const MovieList = (props: IMovieList) => {
   };
 
   return (
-    <div className="movie-list__wrapper" ref={movieWrapperRef}>
+    <div data-testid='movie-list' className="movie-list__wrapper" ref={movieWrapperRef}>
       {errorMessages
         ? <div className="movie-list__error">
             {errorMessages}
