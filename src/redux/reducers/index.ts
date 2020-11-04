@@ -2,7 +2,10 @@ import { SET_MOVIES, SET_FILTERS } from '../actions';
 import { ActionTypes, IInitialState } from '../../interfaces'
 
 const initialState: IInitialState = {
-  movies: [],
+  movies: {
+    Search: [],
+    totalResults: "0",
+  },
   filters: {
     keyword: 'Batman',
     page: 1,
@@ -14,10 +17,7 @@ function reducer(state = initialState, action: ActionTypes) {
     case SET_MOVIES:
       return {
         ...state,
-        movies: [
-          ...state.movies,
-          ...action.movies
-        ]
+        movies: action.movies,
       };
     case SET_FILTERS:
       return {

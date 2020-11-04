@@ -1,6 +1,11 @@
 export interface IInitialState {
-  movies: IMovies[];
+  movies: IMovies;
   filters: IFilters;
+}
+
+export interface IMovies {
+  Search: IMoviesSearchList[];
+  totalResults: string;
 }
 
 export interface IFilters {
@@ -14,7 +19,7 @@ export type ActionTypes =
 
 export interface ISetMoviesAction {
   type: 'SET_MOVIES';
-  movies: IMovies[];
+  movies: IMovies;
 }
 
 export interface ISetMoviesFiltersAction {
@@ -23,7 +28,7 @@ export interface ISetMoviesFiltersAction {
   value: number | string;
 }
 
-export interface IMovies {
+export interface IMoviesSearchList {
   Title: string;
   Year: string;
   imdbID: string;
@@ -32,15 +37,23 @@ export interface IMovies {
 }
 
 export interface IAppProps {
-  movies: IMovies[];
+  movies: IMovies;
   filters: IFilters;
-  setMovieList(movies: IMovies[]): void;
+  setMovieList(movies: IMovies): void;
   setFilters(filterName: string, value: number | string): void;
 }
 
 export interface IMovieList {
-  movieList: IMovies[];
+  movies: IMovies;
   filters: IFilters;
-  setMovieList(movies: IMovies[]): void;
+  isFetching: boolean;
+  errorMessages: string;
+  searchMovies(newSearch?: boolean): void;
+  setFilters(filterName: string, value: number | string): void;
+}
+
+export interface ISearchBar {
+  filters: IFilters;
+  searchMovies(newSearch?: boolean): void;
   setFilters(filterName: string, value: number | string): void;
 }
